@@ -1,8 +1,12 @@
 {
-  "name": " ",
+  "name": "css_system",
   "version": "0.0.1",
   "description": "",
-  "keywords": "",
+  "keywords": [
+    "css",
+    "design systems",
+    "class-less css"
+  ],
   "license": "",
   "author": "",
   "scripts": {
