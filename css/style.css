@@ -36,10 +36,22 @@
   --boxShadow: 0px 4px 6px 0 rgba(0, 0, 0, 0.5);
   --border-small: 3px ridge var(--lightBlue);
   --border-large: 5px ridge var(--lightBlue);
+  /* Spacing */
+  --containerPadding: 2.5%;
+  --headerHeight: 4rem;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
 }
 
 html {
   font-size: var(--baseFontSize);
+  box-sizing: border-box;
 }
 
 /*16px*/
@@ -55,13 +67,34 @@ body {
 header {
   --headerBackground: var(--elementBackground);
   background: var(--headerBackground);
-  border: var(--border-large);
+  border-bottom: var(--border-large);
   box-shadow: var(--boxShadow);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 3em;
+  height: var(--headerHeight);
   margin-bottom: 2em;
+  padding: 0 var(--containerPadding);
+}
+
+nav a+a {
+  margin-left: 10px;
+}
+
+footer {
+  background: var(--elementBackground);
+  padding: var(--containerPadding);
+  text-align: center;
+  border-top: var(--border-large);
+}
+
+footer .logo {
+  margin-bottom: 1em;
+}
+
+footer p {
+  border: none;
+  margin: 0 auto;
 }
 
 h1, h2, h3, h4, h5 {
@@ -72,7 +105,7 @@ h1, h2, h3, h4, h5 {
   border: var(--border-large);
   background: var(--elementBackground);
   box-shadow: var(--boxShadow);
-  padding: .25em;
+  padding: .25rem;
 }
 
 h1 {
@@ -96,29 +129,29 @@ h5 {
   font-size: var(--h5);
 }
 
-p, form, hr {
+p, form, hr, ul, ol {
   background: var(--elementBackground);
   border: var(--border-large);
   border-radius: 5px;
   box-shadow: var(--boxShadow);
   max-width: 45em;
   margin-bottom: 1.15rem;
-  padding: 1em;
+  padding: 1rem;
 }
 
 form {
   max-width: 40em;
-  padding: 3em;
+  padding: 3rem;
   margin: 0 auto;
 }
 
 form div {
-  margin-bottom: .75em;
+  margin-bottom: .75rem;
 }
 
 label {
   display: block;
-  margin-bottom: .25em;
+  margin-bottom: .25rem;
 }
 
 input, select {
@@ -139,7 +172,7 @@ button {
   background: var(--buttonColor);
   color: var(--buttonText);
   cursor: pointer;
-  padding: .5em .75em;
+  padding: .5rem .75rem;
 }
 
 button.cancel {
@@ -148,6 +181,7 @@ button.cancel {
 
 button:disabled {
   background: var(--grey);
+  cursor: not-allowed;
 }
 
 a {
@@ -159,11 +193,29 @@ p a, blockquote a, a:hover {
   border-bottom: solid 2px var(--lightBlue);
 }
 
+ul, ol {
+  max-width: initial;
+}
+
+ul li {
+  list-style: none;
+}
+
+ul li:before {
+  content: '';
+  display: inline-block;
+  height: 1.2rem;
+  width: 1.2rem;
+  background-image: url('../img/mm1up.png');
+  background-size: contain;
+  margin-right: 1rem;
+}
+
 blockquote {
   background: var(--elementBackground);
   border: var(--border-small);
   border-radius: 3px;
-  padding: 1em;
+  padding: 1rem;
 }
 
 ol {
@@ -184,8 +236,7 @@ hr {
 }
 
 .layout {
-  margin: 0 auto;
-  max-width: 95%;
+  padding: 0 var(--containerPadding);
 }
 
 /* Grid layouts */
@@ -194,7 +245,7 @@ hr {
   --columns: 2;
   /* Changes to grid at wider screens */
   display: block;
-  gap: 2em;
+  gap: 2rem;
   grid-template-columns: repeat(var(--columns), 1fr);
 }
 
