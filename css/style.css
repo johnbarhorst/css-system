@@ -9,19 +9,25 @@
   --lightGrey: #f2f4f6;
   --red: #e62e2e;
   --yellow: #fde24f;
-  /* Mega Man Palette */
+  /**** Palette ****/
+  /* Mega Man */
   --tan: #edc99f;
-  --lightBlue: #02efee;
-  --blue: #0400f8;
-  --darkerBlue: #0001cb;
-  --darkestBlue: #01017c;
+  --megaLightBlue: #00FCFC;
+  --megaBlue: #0058F8;
+  --megaDarkBlue: #0000FC;
+  --megaDarkestBlue: #0000BC;
+  /* Bubble Man */
+  --bubbleLightGreen: #58D854;
+  --bubbleGreen: #007800;
+  --bubbleDarkGreen: #005800;
+  --bubbleSlate: #82a4c7;
+  --bubbleBlueGrey: #6888FC;
   /* Define colors intentions */
-  --bodyBackground: var(--darkerBlue);
+  --bodyBackground: var(--megaDarkBlue);
   --elementBackground: var(--black);
-  --itemBackground: var(--darkestBlue);
+  --itemBackground: var(--megaDarkestBlue);
   --lightBackground: var(--lightGrey);
   --textColor: var(--lightGrey);
-  --danger: var(--red);
   /* Fonty McFontFace */
   --headingFont: 'Rubik Mono One', sans-serif;
   --textFont: 'Press Start 2P', sans-serif;
@@ -34,11 +40,11 @@
   --textSmall: 0.8em;
   /* Utility Variables */
   --boxShadow: 0px 4px 6px 0 rgba(0, 0, 0, 0.5);
-  --border-small: 3px ridge var(--lightBlue);
-  --border-large: 5px ridge var(--lightBlue);
   /* Spacing */
   --containerPadding: 2.5%;
   --headerHeight: 4rem;
+  --padSmall: 1rem;
+  --padMed: 2rem;
 }
 
 *, *:before, *:after {
@@ -57,6 +63,11 @@ html {
 /*16px*/
 
 body {
+  --borderColor: var(--megaLightBlue);
+  --border-small: 3px ridge var(--borderColor);
+  --border-large: 5px ridge var(--borderColor);
+  --buttonColor: var(--itemBackground);
+  --danger: var(--red);
   font-family: var(--textFont);
   font-weight: 400;
   line-height: 1.65;
@@ -136,7 +147,7 @@ p, form, hr, ul, ol {
   box-shadow: var(--boxShadow);
   max-width: 45em;
   margin-bottom: 1.15rem;
-  padding: 1rem;
+  padding: var(--padSmall);
 }
 
 form {
@@ -167,7 +178,6 @@ textarea {
 }
 
 button {
-  --buttonColor: var(--itemBackground);
   --buttonText: var(--textColor);
   background: var(--buttonColor);
   color: var(--buttonText);
@@ -190,11 +200,11 @@ a {
 }
 
 p a, blockquote a, a:hover {
-  border-bottom: solid 2px var(--lightBlue);
+  border-bottom: solid 2px var(--borderColor);
 }
 
 ul, ol {
-  max-width: initial;
+  max-width: 40rem;
 }
 
 ul li {
@@ -208,14 +218,14 @@ ul li:before {
   width: 1.2rem;
   background-image: url('../img/mm1up.png');
   background-size: contain;
-  margin-right: 1rem;
+  margin-right: var(--padSmall);
 }
 
 blockquote {
   background: var(--elementBackground);
   border: var(--border-small);
   border-radius: 3px;
-  padding: 1rem;
+  padding: var(--padSmall);
 }
 
 ol {
@@ -266,6 +276,38 @@ hr {
   border: none;
   font-size: var(--baseFontSize);
   margin: 0;
+}
+
+.card {
+  background: var(--elementBackground);
+  border: var(--border-large);
+  box-shadow: var(--boxShadow);
+  padding: 2rem;
+}
+
+.card>*:first-child {
+  margin-top: 0;
+}
+
+.card>*:last-child {
+  margin-bottom: 0;
+}
+
+.card>*:not(button) {
+  border: var(--border-small);
+}
+
+.theme--bubble {
+  /* --bubbleGreen: #007800;
+  --bubbleDarkGreen: #005800;
+  --bubbleSlate: #82a4c7;
+  --bubbleBlueGrey: #6888FC; */
+  --bodyBackground: var(--bubbleDarkGreen);
+  --elementBackground: var(--black);
+  --itemBackground: var(--bubbleGreen);
+  --lightBackground: var(--lightGrey);
+  --textColor: var(--lightGrey);
+  --borderColor: var(--bubbleGreen);
 }
 
 /* Media Queries */
