@@ -11,21 +11,22 @@
   --yellow: #fde24f;
   /**** Palette ****/
   /* Mega Man */
-  --tan: #edc99f;
-  --megaLightBlue: #00FCFC;
-  --megaBlue: #0058F8;
-  --megaDarkBlue: #0000FC;
-  --megaDarkestBlue: #0000BC;
+  --dodgerBlue: #3cbcfc;
+  --skyBlue: #0058F8;
+  --blue: #0000FC;
+  --mediumBlue: #0000BC;
   /* Bubble Man */
-  --bubbleLightGreen: #58D854;
-  --bubbleGreen: #007800;
-  --bubbleDarkGreen: #005800;
-  --bubbleSlate: #82a4c7;
-  --bubbleBlueGrey: #6888FC;
+  --fern: #58D854;
+  --green: #007800;
+  --darkerGreen: #005800;
+  /* Heat Man */
+  --khaki: #f8d878;
+  --orangeRed: #f83800;
+  --orange: #f8b800;
   /* Define colors intentions */
-  --bodyBackground: var(--megaDarkBlue);
+  --bodyBackground: var(--blue);
   --elementBackground: var(--black);
-  --itemBackground: var(--megaDarkestBlue);
+  --itemBackground: var(--mediumBlue);
   --lightBackground: var(--lightGrey);
   --textColor: var(--lightGrey);
   /* Fonty McFontFace */
@@ -63,7 +64,7 @@ html {
 /*16px*/
 
 body {
-  --borderColor: var(--megaLightBlue);
+  --borderColor: var(--dodgerBlue);
   --border-small: 3px ridge var(--borderColor);
   --border-large: 5px ridge var(--borderColor);
   --buttonColor: var(--itemBackground);
@@ -298,16 +299,15 @@ hr {
 }
 
 .theme--bubbleman {
-  /* --bubbleGreen: #007800;
-  --bubbleDarkGreen: #005800;
-  --bubbleSlate: #82a4c7;
-  --bubbleBlueGrey: #6888FC; */
-  --bodyBackground: var(--bubbleDarkGreen);
-  --elementBackground: var(--black);
-  --itemBackground: var(--bubbleGreen);
-  --lightBackground: var(--lightGrey);
-  --textColor: var(--lightGrey);
-  --borderColor: var(--bubbleGreen);
+  --bodyBackground: var(--darkerGreen);
+  --itemBackground: var(--green);
+  --borderColor: var(--fern);
+}
+
+.theme--heatman {
+  --bodyBackground: var(--orangeRed);
+  --itemBackground: var(--orange);
+  --borderColor: var(--khaki);
 }
 
 /* Media Queries */
