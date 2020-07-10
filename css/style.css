@@ -117,8 +117,12 @@ a {
   color: var(--headerTextColor);
 }
 
+nav {
+  font-size: .5rem;
+}
+
 nav a+a {
-  margin-left: 10px;
+  margin-left: none;
 }
 
 footer {
@@ -215,6 +219,7 @@ button {
   color: var(--buttonText);
   cursor: pointer;
   padding: .5rem .75rem;
+  margin-bottom: .5rem;
 }
 
 button.cancel {
@@ -393,5 +398,11 @@ hr {
   }
   .flex {
     display: flex;
+  }
+  nav {
+    font-size: 1rem;
+  }
+  nav a+a {
+    margin-left: 10px;
   }
 }
