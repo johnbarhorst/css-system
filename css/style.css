@@ -113,7 +113,7 @@ header {
   padding: 0 var(--containerPadding);
 }
 
-nav a {
+a {
   color: var(--headerTextColor);
 }
 
@@ -306,7 +306,7 @@ hr {
 
 .logo {
   border: none;
-  font-size: calc(var(--baseFontSize) + 10px);
+  font-size: var(--baseFontSize);
   margin: 0;
   box-shadow: none;
 }
