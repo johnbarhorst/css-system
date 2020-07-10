@@ -1,37 +1,58 @@
 @import url('https://fonts.googleapis.com/css?family=Rubik+Mono+One:400|Press+Start+2P:400');
+@import url('https://fonts.googleapis.com/css?family=Lobster:400|Cabin:400');
 :root {
   /* Define colors as colors */
-  /* Colors from Level Up */
-  --black: #121212;
-  --darkBlue: #00214d;
-  --green: #00ebc7;
-  --grey: #bfbfbf;
-  --lightGrey: #f2f4f6;
+  /* Level Up Colors */
   --red: #e62e2e;
-  --yellow: #fde24f;
+  --black: #121212;
+  --lightGrey: #f2f4f6;
+  --grey: #bfbfbf;
   /**** Palette ****/
   /* Mega Man */
   --dodgerBlue: #3cbcfc;
   --skyBlue: #0058F8;
   --blue: #0000FC;
   --mediumBlue: #0000BC;
+  /* Crash Man */
+  --chocolate: #e45c10;
+  --gold: #ac7c00;
   /* Bubble Man */
   --fern: #58D854;
   --green: #007800;
   --darkerGreen: #005800;
   /* Heat Man */
   --khaki: #f8d878;
+  --crimson: #e40058;
   --orangeRed: #f83800;
   --orange: #f8b800;
+  /* Metal Man */
+  --darkerRed: #881400;
+  /* Quick Man */
+  --darkRed: #a81000;
+  /* Wood Man */
+  --saddleBrown: #503000;
+  --sandyBrown: #fca044;
+  /* Flash Man */
+  --whiteSmoke: #f8f8f8;
   /* Define colors intentions */
+  /* Element Colors */
+  --headerBackground: var(--elementBackground);
   --bodyBackground: var(--blue);
+  --headlineBackground: var(--black);
+  --cardBackground: var(--black);
   --elementBackground: var(--black);
-  --itemBackground: var(--mediumBlue);
-  --lightBackground: var(--lightGrey);
+  --buttonBackground: var(--mediumBlue);
+  --inputBackground: var(--lightGrey);
+  /* Text Colors */
+  --buttonText: var(--lightGrey);
+  --cardText: var(--lightGrey);
+  --headerTextColor: var(--lightGrey);
   --textColor: var(--lightGrey);
   /* Fonty McFontFace */
-  --headingFont: 'Rubik Mono One', sans-serif;
-  --textFont: 'Press Start 2P', sans-serif;
+  --lobster: 'Lobster', sans-serif;
+  --cabin: 'Cabin', sans-serif;
+  --rubikMono: 'Rubik Mono One', sans-serif;
+  --pressStart: 'Press Start 2P', sans-serif;
   --baseFontSize: 80%;
   --h1: 3.052em;
   --h2: 2.441em;
@@ -39,8 +60,10 @@
   --h4: 1.563em;
   --h5: 1.25em;
   --textSmall: 0.8em;
-  /* Utility Variables */
+  /* Shadows and Borders */
+  --borderColor: var(--dodgerBlue);
   --boxShadow: 0px 4px 6px 0 rgba(0, 0, 0, 0.5);
+  --borderRadius: 0px;
   /* Spacing */
   --containerPadding: 2.5%;
   --headerHeight: 4rem;
@@ -52,10 +75,6 @@
   box-sizing: inherit;
 }
 
-body {
-  margin: 0;
-}
-
 html {
   font-size: var(--baseFontSize);
   box-sizing: border-box;
@@ -64,20 +83,25 @@ html {
 /*16px*/
 
 body {
-  --borderColor: var(--dodgerBlue);
+  --headingFont: var(--rubikMono);
+  --headingBackground: var(--black);
+  --textFont: var(--pressStart);
   --border-small: 3px ridge var(--borderColor);
   --border-large: 5px ridge var(--borderColor);
-  --buttonColor: var(--itemBackground);
+  --buttonText: var(--textColor);
   --danger: var(--red);
+  --headingShadow: var(--boxShadow);
   font-family: var(--textFont);
   font-weight: 400;
   line-height: 1.65;
+  margin: 0;
   background: var(--bodyBackground);
   color: var(--textColor);
+  transition: all .3s ease;
 }
 
 header {
-  --headerBackground: var(--elementBackground);
+  color: var(--headerTextColor);
   background: var(--headerBackground);
   border-bottom: var(--border-large);
   box-shadow: var(--boxShadow);
@@ -89,12 +113,17 @@ header {
   padding: 0 var(--containerPadding);
 }
 
+nav a {
+  color: var(--headerTextColor);
+}
+
 nav a+a {
   margin-left: 10px;
 }
 
 footer {
-  background: var(--elementBackground);
+  background: var(--headerBackground);
+  color: var(--headerTextColor);
   padding: var(--containerPadding);
   text-align: center;
   border-top: var(--border-large);
@@ -105,7 +134,9 @@ footer .logo {
 }
 
 footer p {
+  background: none;
   border: none;
+  box-shadow: none;
   margin: 0 auto;
 }
 
@@ -115,8 +146,8 @@ h1, h2, h3, h4, h5 {
   font-weight: 400;
   line-height: 1.15;
   border: var(--border-large);
-  background: var(--elementBackground);
-  box-shadow: var(--boxShadow);
+  background: var(--headingBackground);
+  box-shadow: var(--headingShadow);
   padding: .25rem;
 }
 
@@ -167,7 +198,7 @@ label {
 }
 
 input, select {
-  background: var(--lightBackground);
+  background: var(--inputBackground);
   font-size: var(--textSmall);
   padding: 4px 6px;
 }
@@ -179,15 +210,15 @@ textarea {
 }
 
 button {
-  --buttonText: var(--textColor);
-  background: var(--buttonColor);
+  background: var(--buttonBackground);
+  border-radius: var(--borderRadius);
   color: var(--buttonText);
   cursor: pointer;
   padding: .5rem .75rem;
 }
 
 button.cancel {
-  --buttonColor: var(--danger);
+  --buttonBackground: var(--danger);
 }
 
 button:disabled {
@@ -275,12 +306,14 @@ hr {
 
 .logo {
   border: none;
-  font-size: var(--baseFontSize);
+  font-size: calc(var(--baseFontSize) + 10px);
   margin: 0;
+  box-shadow: none;
 }
 
 .card {
-  background: var(--elementBackground);
+  background: var(--cardBackground);
+  color: var(--cardText);
   border: var(--border-large);
   box-shadow: var(--boxShadow);
   padding: 2rem;
@@ -295,19 +328,58 @@ hr {
 }
 
 .card>*:not(button) {
+  background: none;
   border: var(--border-small);
 }
 
+/* Themes */
+
 .theme--bubbleman {
   --bodyBackground: var(--darkerGreen);
-  --itemBackground: var(--green);
+  --buttonBackground: var(--green);
   --borderColor: var(--fern);
 }
 
+.theme--crashman {
+  --bodyBackground: var(--chocolate);
+  --buttonBackground: var(--gold);
+  --borderColor: var(--gold);
+}
+
 .theme--heatman {
-  --bodyBackground: var(--orangeRed);
-  --itemBackground: var(--orange);
+  --bodyBackground: var(--crimson);
+  --buttonBackground: var(--orangeRed);
   --borderColor: var(--khaki);
+}
+
+.theme--metalman {
+  --bodyBackground: var(--darkerRed);
+  --buttonBackground: var(--darkerRed);
+  --borderColor: var(--khaki);
+}
+
+.theme--quickman {
+  --bodyBackground: var(--darkRed);
+  --buttonBackground: var(--darkRed);
+  --borderColor: var(--gold);
+}
+
+.theme--woodman {
+  --bodyBackground: var(--saddleBrown);
+  --buttonBackground: var(--gold);
+  --borderColor: var(--sandyBrown);
+}
+
+.theme--flashman {
+  --bodyBackground: var(--mediumBlue);
+  --buttonBackground: var(--blue);
+  --borderColor: var(--whiteSmoke);
+}
+
+.theme--airman {
+  --bodyBackground: var(--skyBlue);
+  --buttonBackground: var(--skyBlue);
+  --borderColor: var(--gold);
 }
 
 /* Media Queries */
