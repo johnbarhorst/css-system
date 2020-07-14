@@ -7,7 +7,7 @@
   --black: #121212;
   --lightGrey: #f2f4f6;
   --grey: #bfbfbf;
-  /**** Palette ****/
+  /**** NES Palette ****/
   /* Mega Man */
   --dodgerBlue: #3cbcfc;
   --skyBlue: #0058F8;
@@ -34,11 +34,9 @@
   --sandyBrown: #fca044;
   /* Flash Man */
   --whiteSmoke: #f8f8f8;
-  /* Define colors intentions */
   /* Element Colors */
   --headerBackground: var(--elementBackground);
   --bodyBackground: var(--blue);
-  --headlineBackground: var(--black);
   --cardBackground: var(--black);
   --elementBackground: var(--black);
   --buttonBackground: var(--mediumBlue);
@@ -62,7 +60,7 @@
   --textSmall: 0.8em;
   /* Shadows and Borders */
   --borderColor: var(--dodgerBlue);
-  --boxShadow: 0px 4px 6px 0 rgba(0, 0, 0, 0.5);
+  --megaBoxShadow: 0px 4px 6px 0 rgba(0, 0, 0, 0.5);
   --borderRadius: 0px;
   /* Spacing */
   --containerPadding: 2.5%;
@@ -86,11 +84,11 @@ body {
   --headingFont: var(--rubikMono);
   --headingBackground: var(--black);
   --textFont: var(--pressStart);
-  --border-small: 3px ridge var(--borderColor);
-  --border-large: 5px ridge var(--borderColor);
+  --border-sm: 3px ridge var(--borderColor);
+  --border-lg: 5px ridge var(--borderColor);
   --buttonText: var(--textColor);
   --danger: var(--red);
-  --headingShadow: var(--boxShadow);
+  --headingShadow: var(--megaBoxShadow);
   font-family: var(--textFont);
   font-weight: 400;
   line-height: 1.65;
@@ -103,8 +101,8 @@ body {
 header {
   color: var(--headerTextColor);
   background: var(--headerBackground);
-  border-bottom: var(--border-large);
-  box-shadow: var(--boxShadow);
+  border-bottom: var(--border-lg);
+  box-shadow: var(--megaBoxShadow);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -130,7 +128,7 @@ footer {
   color: var(--headerTextColor);
   padding: var(--containerPadding);
   text-align: center;
-  border-top: var(--border-large);
+  border-top: var(--border-lg);
 }
 
 footer .logo {
@@ -149,7 +147,7 @@ h1, h2, h3, h4, h5 {
   font-family: var(--headingFont);
   font-weight: 400;
   line-height: 1.15;
-  border: var(--border-large);
+  border: var(--border-lg);
   background: var(--headingBackground);
   box-shadow: var(--headingShadow);
   padding: .25rem;
@@ -178,9 +176,9 @@ h5 {
 
 p, form, hr, ul, ol {
   background: var(--elementBackground);
-  border: var(--border-large);
+  border: var(--border-lg);
   border-radius: 5px;
-  box-shadow: var(--boxShadow);
+  box-shadow: var(--megaBoxShadow);
   max-width: 45em;
   margin-bottom: 1.15rem;
   padding: var(--padSmall);
@@ -188,8 +186,8 @@ p, form, hr, ul, ol {
 
 form {
   max-width: 40em;
-  padding: 3rem;
-  margin: 0 auto;
+  padding: 1.5rem;
+  margin: 0 1.5rem;
 }
 
 form div {
@@ -260,7 +258,7 @@ ul li:before {
 
 blockquote {
   background: var(--elementBackground);
-  border: var(--border-small);
+  border: var(--border-sm);
   border-radius: 3px;
   padding: var(--padSmall);
 }
@@ -304,7 +302,7 @@ hr {
 
 .flex {
   --justifyContent: space-between;
-  /* Changes to grid at wider screens */
+  /* Changes to flex at wider screens */
   display: block;
   justify-content: var(--justifyContent);
 }
@@ -319,8 +317,8 @@ hr {
 .card {
   background: var(--cardBackground);
   color: var(--cardText);
-  border: var(--border-large);
-  box-shadow: var(--boxShadow);
+  border: var(--border-lg);
+  box-shadow: var(--megaBoxShadow);
   padding: 2rem;
 }
 
@@ -334,7 +332,7 @@ hr {
 
 .card>*:not(button) {
   background: none;
-  border: var(--border-small);
+  border: var(--border-sm);
 }
 
 /* Themes */
@@ -404,5 +402,9 @@ hr {
   }
   nav a+a {
     margin-left: 10px;
+  }
+  form {
+    margin: 0 auto;
+    padding: 3rem;
   }
 }
