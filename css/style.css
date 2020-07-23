@@ -35,17 +35,15 @@
   /* Flash Man */
   --whiteSmoke: #f8f8f8;
   /* Element Colors */
-  --headerBackground: var(--elementBackground);
   --bodyBackground: var(--blue);
   --cardBackground: var(--black);
   --elementBackground: var(--black);
   --buttonBackground: var(--mediumBlue);
   --inputBackground: var(--lightGrey);
   /* Text Colors */
+  --textColor: var(--lightGrey);
   --buttonText: var(--lightGrey);
   --cardText: var(--lightGrey);
-  --headerTextColor: var(--lightGrey);
-  --textColor: var(--lightGrey);
   /* Fonty McFontFace */
   --lobster: 'Lobster', sans-serif;
   --cabin: 'Cabin', sans-serif;
@@ -59,14 +57,14 @@
   --h5: 1.25em;
   --textSmall: 0.8em;
   /* Shadows and Borders */
-  --borderColor: var(--dodgerBlue);
   --megaBoxShadow: 0px 4px 6px 0 rgba(0, 0, 0, 0.5);
-  --borderRadius: 0px;
+  --borderRadiusBtn: 0px;
   /* Spacing */
   --containerPadding: 2.5%;
   --headerHeight: 4rem;
   --padSmall: 1rem;
   --padMed: 2rem;
+  --padLarge: 3rem;
 }
 
 *, *:before, *:after {
@@ -84,11 +82,16 @@ body {
   --headingFont: var(--rubikMono);
   --headingBackground: var(--black);
   --textFont: var(--pressStart);
-  --border-sm: 3px ridge var(--borderColor);
-  --border-lg: 5px ridge var(--borderColor);
+  --borderColor: var(--dodgerBlue);
+  --border-sm: var(--nesBorder-sm);
+  --border-lg: var(--nesBorder-lg);
   --buttonText: var(--textColor);
   --danger: var(--red);
   --headingShadow: var(--megaBoxShadow);
+  --elementShadow: var(--megaBoxShadow);
+  --nesBorder-sm: 3px ridge var(--borderColor);
+  --nesBorder-lg: 5px ridge var(--borderColor);
+  --buttonHover: 2px outset var(--borderColor);
   font-family: var(--textFont);
   font-weight: 400;
   line-height: 1.65;
@@ -99,10 +102,10 @@ body {
 }
 
 header {
-  color: var(--headerTextColor);
-  background: var(--headerBackground);
+  color: var(--textColor);
+  background: var(--elementBackground);
   border-bottom: var(--border-lg);
-  box-shadow: var(--megaBoxShadow);
+  box-shadow: var(--elementShadow);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -112,7 +115,7 @@ header {
 }
 
 a {
-  color: var(--headerTextColor);
+  color: var(--textColor);
 }
 
 nav {
@@ -124,8 +127,8 @@ nav a+a {
 }
 
 footer {
-  background: var(--headerBackground);
-  color: var(--headerTextColor);
+  background: var(--elementBackground);
+  color: var(--textColor);
   padding: var(--containerPadding);
   text-align: center;
   border-top: var(--border-lg);
@@ -178,16 +181,16 @@ p, form, hr, ul, ol {
   background: var(--elementBackground);
   border: var(--border-lg);
   border-radius: 5px;
-  box-shadow: var(--megaBoxShadow);
+  box-shadow: var(--elementShadow);
   max-width: 45em;
   margin-bottom: 1.15rem;
   padding: var(--padSmall);
 }
 
 form {
-  max-width: 40em;
-  padding: 1.5rem;
-  margin: 0 1.5rem;
+  max-width: calc(100vw - 3rem);
+  padding: var(--padSmall);
+  margin: 0 auto;
 }
 
 form div {
@@ -213,11 +216,16 @@ textarea {
 
 button {
   background: var(--buttonBackground);
-  border-radius: var(--borderRadius);
+  border-radius: var(--borderRadiusBtn);
   color: var(--buttonText);
   cursor: pointer;
   padding: .5rem .75rem;
   margin-bottom: .5rem;
+}
+
+button:hover {
+  background: var(--bodyBackground);
+  border: var(--buttonHover);
 }
 
 button.cancel {
@@ -227,6 +235,11 @@ button.cancel {
 button:disabled {
   background: var(--grey);
   cursor: not-allowed;
+}
+
+button:disabled:hover {
+  color: var(--lightGrey);
+  background: var(--black);
 }
 
 a {
@@ -294,17 +307,12 @@ hr {
   grid-template-columns: repeat(var(--columns), 1fr);
 }
 
-.col-3 {
-  --columns: 3;
-}
-
 /* Flex Layouts */
 
 .flex {
-  --justifyContent: space-between;
   /* Changes to flex at wider screens */
   display: block;
-  justify-content: var(--justifyContent);
+  justify-content: space-between;
 }
 
 .logo {
@@ -319,7 +327,7 @@ hr {
   color: var(--cardText);
   border: var(--border-lg);
   box-shadow: var(--megaBoxShadow);
-  padding: 2rem;
+  padding: var(--padMed);
 }
 
 .card>*:first-child {
@@ -387,7 +395,7 @@ hr {
 
 /* Media Queries */
 
-@media only screen and (min-width: 850px) {
+@media only screen and (min-width: 767px) {
   :root {
     --baseFontSize: 100%;
   }
@@ -404,7 +412,7 @@ hr {
     margin-left: 10px;
   }
   form {
-    margin: 0 auto;
-    padding: 3rem;
+    max-width: 40em;
+    padding: var(--padLarge);
   }
 }
