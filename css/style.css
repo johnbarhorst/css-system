@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css?family=Rubik+Mono+One:400|Press+Start+2P:400');
-@import url('https://fonts.googleapis.com/css?family=Lobster:400|Cabin:400');
 :root {
   /* Define colors as colors */
   /* Level Up Colors */
@@ -45,8 +44,6 @@
   --buttonText: var(--lightGrey);
   --cardText: var(--lightGrey);
   /* Fonty McFontFace */
-  --lobster: 'Lobster', sans-serif;
-  --cabin: 'Cabin', sans-serif;
   --rubikMono: 'Rubik Mono One', sans-serif;
   --pressStart: 'Press Start 2P', sans-serif;
   --baseFontSize: 80%;
@@ -58,7 +55,9 @@
   --textSmall: 0.8em;
   /* Shadows and Borders */
   --megaBoxShadow: 0px 4px 6px 0 rgba(0, 0, 0, 0.5);
-  --borderRadiusBtn: 0px;
+  --miniBoxShadow: 0px 2px 3px 0 rgba(0, 0, 0, 0.5);
+  --nesBorder-sm: 3px ridge;
+  --nesBorder-lg: 5px ridge;
   /* Spacing */
   --containerPadding: 2.5%;
   --headerHeight: 4rem;
@@ -83,15 +82,13 @@ body {
   --headingBackground: var(--black);
   --textFont: var(--pressStart);
   --borderColor: var(--dodgerBlue);
-  --border-sm: var(--nesBorder-sm);
-  --border-lg: var(--nesBorder-lg);
+  --border-sm: var(--nesBorder-sm) var(--borderColor);
+  --border-lg: var(--nesBorder-lg) var(--borderColor);
   --buttonText: var(--textColor);
   --danger: var(--red);
   --headingShadow: var(--megaBoxShadow);
   --elementShadow: var(--megaBoxShadow);
-  --nesBorder-sm: 3px ridge var(--borderColor);
-  --nesBorder-lg: 5px ridge var(--borderColor);
-  --buttonHover: 2px outset var(--borderColor);
+  --buttonHoverBorder: 2px outset var(--borderColor);
   font-family: var(--textFont);
   font-weight: 400;
   line-height: 1.65;
@@ -128,10 +125,10 @@ nav a+a {
 
 footer {
   background: var(--elementBackground);
+  border-top: var(--border-lg);
   color: var(--textColor);
   padding: var(--containerPadding);
   text-align: center;
-  border-top: var(--border-lg);
 }
 
 footer .logo {
@@ -146,19 +143,19 @@ footer p {
 }
 
 h1, h2, h3, h4, h5 {
-  margin: 2.75rem 0 1.05rem;
+  background: var(--headingBackground);
+  border: var(--border-lg);
+  box-shadow: var(--headingShadow);
   font-family: var(--headingFont);
   font-weight: 400;
   line-height: 1.15;
-  border: var(--border-lg);
-  background: var(--headingBackground);
-  box-shadow: var(--headingShadow);
+  margin: 2.75rem 0 1.05rem;
   padding: .25rem;
 }
 
 h1 {
-  margin-top: 0;
   font-size: var(--h1);
+  margin-top: 0;
 }
 
 h2 {
@@ -182,15 +179,15 @@ p, form, hr, ul, ol {
   border: var(--border-lg);
   border-radius: 5px;
   box-shadow: var(--elementShadow);
-  max-width: 45em;
   margin-bottom: 1.15rem;
+  max-width: 45em;
   padding: var(--padSmall);
 }
 
 form {
+  margin: 0 auto;
   max-width: calc(100vw - 3rem);
   padding: var(--padSmall);
-  margin: 0 auto;
 }
 
 form div {
@@ -216,16 +213,15 @@ textarea {
 
 button {
   background: var(--buttonBackground);
-  border-radius: var(--borderRadiusBtn);
   color: var(--buttonText);
   cursor: pointer;
-  padding: .5rem .75rem;
   margin-bottom: .5rem;
+  padding: .5rem .75rem;
 }
 
 button:hover {
   background: var(--bodyBackground);
-  border: var(--buttonHover);
+  border: var(--buttonHoverBorder);
 }
 
 button.cancel {
@@ -238,8 +234,8 @@ button:disabled {
 }
 
 button:disabled:hover {
-  color: var(--lightGrey);
   background: var(--black);
+  color: var(--lightGrey);
 }
 
 a {
@@ -260,19 +256,20 @@ ul li {
 }
 
 ul li:before {
+  background-image: url('../img/mm1up.png');
+  background-size: contain;
   content: '';
   display: inline-block;
   height: 1.2rem;
-  width: 1.2rem;
-  background-image: url('../img/mm1up.png');
-  background-size: contain;
   margin-right: var(--padSmall);
+  width: 1.2rem;
 }
 
 blockquote {
   background: var(--elementBackground);
   border: var(--border-sm);
   border-radius: 3px;
+  box-shadow: var(--miniBoxShadow);
   padding: var(--padSmall);
 }
 
@@ -324,9 +321,9 @@ hr {
 
 .card {
   background: var(--cardBackground);
-  color: var(--cardText);
   border: var(--border-lg);
   box-shadow: var(--megaBoxShadow);
+  color: var(--cardText);
   padding: var(--padMed);
 }
 
