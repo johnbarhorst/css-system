@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Rubik+Mono+One:400|Press+Start+2P:400');
 :root {
-  /* Define colors as colors */
   /* Level Up Colors */
   --red: #e62e2e;
   --black: #121212;
@@ -23,7 +22,6 @@
   --khaki: #f8d878;
   --crimson: #e40058;
   --orangeRed: #f83800;
-  --orange: #f8b800;
   /* Metal Man */
   --darkerRed: #881400;
   /* Quick Man */
@@ -76,8 +74,6 @@ html {
   font-size: var(--baseFontSize);
   box-sizing: border-box;
 }
-
-/*16px*/
 
 body {
   --headingFont: var(--rubikMono);
