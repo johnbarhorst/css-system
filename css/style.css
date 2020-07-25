@@ -35,8 +35,9 @@
   --whiteSmoke: #f8f8f8;
   /* Element Colors */
   --bodyBackground: var(--blue);
-  --cardBackground: var(--black);
   --elementBackground: var(--black);
+  --headingBackground: var(--black);
+  --cardBackground: var(--black);
   --buttonBackground: var(--mediumBlue);
   --inputBackground: var(--lightGrey);
   /* Text Colors */
@@ -58,6 +59,7 @@
   --miniBoxShadow: 0px 2px 3px 0 rgba(0, 0, 0, 0.5);
   --nesBorder-sm: 3px ridge;
   --nesBorder-lg: 5px ridge;
+  --borderColor: var(--dodgerBlue);
   /* Spacing */
   --containerPadding: 2.5%;
   --headerHeight: 4rem;
@@ -79,16 +81,13 @@ html {
 
 body {
   --headingFont: var(--rubikMono);
-  --headingBackground: var(--black);
   --textFont: var(--pressStart);
-  --borderColor: var(--dodgerBlue);
   --border-sm: var(--nesBorder-sm) var(--borderColor);
   --border-lg: var(--nesBorder-lg) var(--borderColor);
   --buttonText: var(--textColor);
   --danger: var(--red);
   --headingShadow: var(--megaBoxShadow);
   --elementShadow: var(--megaBoxShadow);
-  --buttonHoverBorder: 2px outset var(--borderColor);
   font-family: var(--textFont);
   font-weight: 400;
   line-height: 1.65;
@@ -221,7 +220,7 @@ button {
 
 button:hover {
   background: var(--bodyBackground);
-  border: var(--buttonHoverBorder);
+  border: 2px outset var(--borderColor);
 }
 
 button.cancel {
@@ -235,7 +234,7 @@ button:disabled {
 
 button:disabled:hover {
   background: var(--black);
-  color: var(--lightGrey);
+  color: var(--danger);
 }
 
 a {
@@ -251,7 +250,7 @@ ul, ol {
   max-width: 40rem;
 }
 
-ul li {
+ul {
   list-style: none;
 }
 
@@ -265,16 +264,16 @@ ul li:before {
   width: 1.2rem;
 }
 
+ol {
+  padding-left: 4rem;
+}
+
 blockquote {
   background: var(--elementBackground);
   border: var(--border-sm);
   border-radius: 3px;
   box-shadow: var(--miniBoxShadow);
   padding: var(--padSmall);
-}
-
-ol {
-  padding-left: 4rem;
 }
 
 hr {
